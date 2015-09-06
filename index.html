@@ -9,77 +9,111 @@ I can't wait to see the resumes you put together!
 Cameron Pittman, Udacity Course Developer
 -->
 
+<!-- Missing in supplied template -->
+<html lang="en">
+
 <!--
 The <head> of a website generally links to important resources the page will
 need to load. You'll see a lot of <link>s to CSS files for styles and
 <scripts> for JavaScript files to build interactions.
 -->
 <head>
- 	<!-- This tells the browser how to read the document. -->
+	<!-- This tells the browser how to read the document. -->
 	<meta charset="utf-8">
 
- 	<!-- Tells the browser what the title of this page should be. -->
+	<!-- Tells the browser what the title of this page should be. -->
 	<title>Resume</title>
 
 	<!-- Load the page styles. -->
 	<link href="css/style.css" rel="stylesheet">
 
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
+	<link href="css/style2.css" rel="stylesheet">
 
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
-  <script src="js/jQuery.js"></script>
+	<!-- jQuery is a common JavaScript library for reading and making changes to the
+	Document Object Model (DOM). The DOM is a tree that contains information
+	about what is actually visible on a website.
 
- <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
+	While HTML is a static document, the browser converts HTML to the
+	DOM and the DOM can change. In fact, JavaScript's power comes from
+	its ability to manipulate the DOM, which is essentially a JavaScript
+	object. When JavaScript makes something interesting happen on a
+	website, it's likely the action happened because JavaScript changed
+	the DOM. jQuery is fast and easy to use, but it doesn't do anything
+	you can't accomplish with vanilla (regular) JavaScript.
 
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
-  <meta name="viewport" content="width=device-width">
-</head>
-<body>
-  <div id="main">
-	<!--
-	Everything from here to the <script> tag below is the skeleton of your
-	website. Your code will add information to each of the sections of the
-	resume below. You can pretty easily figure out what each section will
-	display by looking at the id or at what's written between the <h2> tags.
+	<script src="js/jQuery.js"></script>
 	-->
-	<div id="header" class="center-content clear-fix">
-	  <ul id="topContacts" class="flex-box"></ul>
+
+	<!-- Loading jQuery 2.1.4 from Google CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- More on helper.js in the class -->
+	<script src="js/helper.js"></script>
+
+	<!--
+	Uncomment the <script> tag below when you're ready to add an interactive
+	Google Map to your resume!
+	-->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<div id="main" class="container">
+		<!--
+		Everything from here to the <script> tag below is the skeleton of your
+		website. Your code will add information to each of the sections of the
+		resume below. You can pretty easily figure out what each section will
+		display by looking at the id or at what's written between the <h2> tags.
+		-->
+
+		<!-- Header and Contacts -->
+		<div class="row">
+			<div id="header" class="col-md-12">
+				<ul id="topContacts" class="flex-box"></ul>
+			</div>
+		</div>
+
+		<!-- Employment History -->
+		<div class="row">
+			<div id="workExperience" class="col-md-12 gray">
+				<h2>Work Experience</h2>
+			</div>
+		</div>
+
+		<!-- Projects -->
+		<div class="row">
+			<div id="projects" class="col-md-12">
+				<h2>Projects</h2>
+			</div>
+		</div>
+
+		<!-- Education -->
+		<div class="row">
+			<div id="education" class="col-md-12 gray">
+				<h2>Education</h2>
+			</div>
+		</div>
+
+		<!-- Interactive Map -->
+		<div class="row">
+			<div id="mapDiv" class="col-md-12">
+				<h2>Where I've Lived and Worked</h2>
+			</div>
+		</div>
+
+		<!-- Connect Footer -->
+		<div class="row">
+			<div id="lets-connect" class="col-md-12 dark-gray">
+				<h2 class="orange center-text">Let's Connect</h2>
+				<ul id="footerContacts" class="flex-box"></ul>
+			</div>
+		</div>
 	</div>
-	<div style="clear: both;"></div>
-	<div id="workExperience" class="gray">
-	  <h2>Work Experience</h2>
-	</div>
-	<div id="projects">
-	  <h2>Projects</h2>
-	</div>
-	<div id="education" class="gray">
-	  <h2>Education</h2>
-	</div>
-	<div id="mapDiv">
-	  <h2>Where I've Lived and Worked</h2>
-	</div>
-	<div id="lets-connect" class="dark-gray">
-	  <h2 class="orange center-text">Let's Connect</h2>
-		<ul id="footerContacts" class="flex-box">
-	  </ul>
-	</div>
-  </div>
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
