@@ -1,5 +1,5 @@
 var bio = {
-	"name" : "JL Scott",
+	"name" : "James L. Scott",
 	"role" : "iOS Developer",
 	"welcomeMessage" : "I welcome you to this awesome resume!",
 	"contacts" : {
@@ -98,7 +98,7 @@ var work = {
 				$("#workExperience").append(HTMLworkStart);
 				var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
 				var formattedWorkTitle = HTMLworkTitle.replace("%data%", this.jobs[job].title);
-				var formattedEmployerTitle = formattedWorkEmployer+formattedWorkTitle;
+				var formattedEmployerTitle = formattedWorkEmployer+" "+formattedWorkTitle;
 				var formattedWorkLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
 				var formattedWorkDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
 				var formattedWorkDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
@@ -267,10 +267,3 @@ function locationizer(work_obj) {
 	}
 	return locations;
 }
-
-$(document).click(function(loc) {
-	var x = loc.pageX;
-	var y = loc.pageY;
-	logClicks(x,y);
-});
-

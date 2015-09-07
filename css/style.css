@@ -11,13 +11,15 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
 }
 
+/*
 .clear-fix {
   overflow: auto;
 }
-
+*/
 .education-entry,
 .work-entry,
 .project-entry {
@@ -31,12 +33,14 @@ h1 {
   display: inline;
 }
 
+/* modified */
 h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999;
-  line-height: 29px;
+  font-size: 30px;
+  color: #888;
+  line-height: 34px;
   padding: 10px;
+  margin: 30px 0 20px;
+  border-bottom: 1px solid #999;
 }
 
 h3 {
@@ -53,11 +57,13 @@ h4 {
   line-height: 17px;
 }
 
+
+/* modified */
 h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
+  padding:10px;
 
 }
 
@@ -164,9 +170,9 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+/* #lets-connect {
   text-align: center;
-}
+} */
 
 /* Media queries to handle various device widths */
 

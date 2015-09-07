@@ -24,6 +24,11 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<!-- Tells the browser what the title of this page should be. -->
 	<title>Resume</title>
 
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet'>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 	<!-- Load the page styles. -->
 	<link href="css/style.css" rel="stylesheet">
 
@@ -72,47 +77,69 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		-->
 
 		<!-- Header and Contacts -->
-		<div class="row">
-			<div id="header" class="col-md-12">
-				<ul id="topContacts" class="flex-box"></ul>
+		<header>
+			<div class="row">
+				<div id="header" class="col-md-12">
+					<ul id="topContacts" class="flex-box"></ul>
+				</div>
 			</div>
-		</div>
+		</header>
 
 		<!-- Employment History -->
-		<div class="row">
-			<div id="workExperience" class="col-md-12 gray">
-				<h2>Work Experience</h2>
+		<section>
+			<div class="row">
+				<div id="workExperience" class="col-md-12">
+					<header>
+						<h2>Work Experience</h2>
+					</header>
+				</div>
 			</div>
-		</div>
+		</section>
 
 		<!-- Projects -->
-		<div class="row">
-			<div id="projects" class="col-md-12">
-				<h2>Projects</h2>
+		<section>
+			<div class="row">
+				<div id="projects" class="col-md-12">
+					<header>
+						<h2>Projects</h2>
+					</header>
+				</div>
 			</div>
-		</div>
+		</section>
 
 		<!-- Education -->
-		<div class="row">
-			<div id="education" class="col-md-12 gray">
-				<h2>Education</h2>
+		<section>
+			<div class="row">
+				<div id="education" class="col-md-12">
+					<header>
+						<h2>Education</h2>
+					</header>
+				</div>
 			</div>
-		</div>
+		</section>
 
 		<!-- Interactive Map -->
-		<div class="row">
-			<div id="mapDiv" class="col-md-12">
-				<h2>Where I've Lived and Worked</h2>
+		<section>
+			<div class="row">
+				<div id="mapDiv" class="col-md-12">
+					<header>
+						<h2>Where I've Lived and Worked</h2>
+					</header>
+				</div>
 			</div>
-		</div>
+		</section>
 
 		<!-- Connect Footer -->
-		<div class="row">
-			<div id="lets-connect" class="col-md-12 dark-gray">
-				<h2 class="orange center-text">Let's Connect</h2>
-				<ul id="footerContacts" class="flex-box"></ul>
+		<section>
+			<div class="row">
+				<div id="lets-connect" class="col-md-12 clearfix">
+					<header>
+						<h2>Let's Connect</h2>
+					</header>
+					<ul id="footerContacts" class="flex-box"></ul>
+				</div>
 			</div>
-		</div>
+		</section>
 	</div>
 
   <!--
