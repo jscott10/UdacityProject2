@@ -56,6 +56,7 @@ var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
+
 var googleMap = '<div id="map"></div>';
 
 
@@ -170,13 +171,21 @@ function initializeMap() {
 		// infoWindows are the little helper windows that open when you click
 		// or hover over a pin on a map. They usually contain more information
 		// about a location.
+
+		// Added a little HTML formatting to content
 		var infoWindow = new google.maps.InfoWindow({
-			content: name
+			content: "<p><strong>"+name+"</strong></p>"
 		});
 
-		// hmmmm, I wonder what this is about...
-		google.maps.event.addListener(marker, 'click', function() {
-			// your code goes here!
+		// Open infoWindow with location text when user hovers over pin
+		// Changed 'click' event to 'mouseover'
+		google.maps.event.addListener(marker, 'mouseover', function() {
+			infoWindow.open(map, marker);
+		});
+
+		// Added mouseout event to close infoWindow
+		google.maps.event.addListener(marker, 'mouseout', function() {
+			infoWindow.close();
 		});
 
 		// this is where the pin actually gets added to the map.
