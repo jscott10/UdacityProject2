@@ -68,6 +68,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 </head>
 
 <body>
+
 	<div id="main" class="container">
 		<!--
 		Everything from here to the <script> tag below is the skeleton of your
@@ -85,49 +86,75 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 			</div>
 		</header>
 
-		<!-- Employment History -->
-		<section>
-			<div class="row">
-				<div id="workExperience" class="col-md-12">
-					<header>
-						<h2>Work Experience</h2>
-					</header>
-				</div>
-			</div>
-		</section>
+		<!-- Nav tabs -->
+		<ul id="myTabs" class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Work Experience</a></li>
+			<li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Projects</a></li>
+			<li role="presentation"><a href="#tab3" aria-controls="tab2" role="tab" data-toggle="tab">Education</a></li>
+			<li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Where I've Lived and Worked</a></li>
+		</ul>
 
-		<!-- Projects -->
-		<section>
-			<div class="row">
-				<div id="projects" class="col-md-12">
-					<header>
-						<h2>Projects</h2>
-					</header>
-				</div>
+  <!-- Tab panes
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">...</div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+  </div> -->
+		<div class="tab-content">
+			<!-- Employment History -->
+			<div role="tabpanel" id="tab1" class="tab-pane fade in active">
+				<section>
+					<div class="row">
+						<div id="workExperience" class="col-md-12">
+							<header>
+								<h2>Work Experience</h2>
+							</header>
+						</div>
+					</div>
+				</section>
 			</div>
-		</section>
 
-		<!-- Education -->
-		<section>
-			<div class="row">
-				<div id="education" class="col-md-12">
-					<header>
-						<h2>Education</h2>
-					</header>
-				</div>
-			</div>
-		</section>
 
-		<!-- Interactive Map -->
-		<section>
-			<div class="row">
-				<div id="mapDiv" class="col-md-12">
-					<header>
-						<h2>Where I've Lived and Worked</h2>
-					</header>
-				</div>
+			<!-- Projects -->
+			<div role="tabpanel" id="tab2" class="tab-pane fade">
+				<section>
+					<div class="row">
+						<div id="projects" class="col-md-12">
+							<header>
+								<h2>Projects</h2>
+							</header>
+						</div>
+					</div>
+				</section>
 			</div>
-		</section>
+
+			<!-- Education -->
+			<div role="tabpanel" id="tab3" class="tab-pane fade">
+				<section>
+					<div class="row">
+						<div id="education" class="col-md-12">
+							<header>
+								<h2>Education</h2>
+							</header>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- Interactive Map -->
+			<div role="tabpanel" id="tab4" class="tab-pane fade">
+				<section>
+					<div class="row">
+						<div id="mapDiv" class="col-md-12">
+							<header>
+								<h2>Where I've Lived and Worked</h2>
+							</header>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
 
 		<!-- Connect Footer -->
 		<section>
@@ -171,6 +198,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		if(document.getElementById('map') === null) {
 			document.getElementById('mapDiv').style.display = 'none';
 		}
+	</script>
+	<script type="text/javascript">
+		$('#myTabs li a').click(function (e) {
+		  e.preventDefault();
+		  $(this).tab('show');
+		});
 	</script>
 </body>
 </html>

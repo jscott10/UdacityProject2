@@ -261,10 +261,10 @@ bio.display();
 work.display();
 projects.display();
 education.display();
+$("#mapDiv").append(googleMap);
+
 
 //$("#main").append(internationalizeButton);
-
-$("#mapDiv").append(googleMap);
 
 function inName(name) {
 	name = name.trim().split(" ");
