@@ -119,18 +119,18 @@ var work = {
 			for(var job in this.jobs) {
 				var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
 				var formattedWorkTitle = HTMLworkTitle.replace("%data%", this.jobs[job].title);
-				var formattedEmployerTitle = formattedWorkEmployer+" "+formattedWorkTitle;
-				var formattedWorkLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
+				var formattedWorkEmployerTitle = formattedWorkEmployer+" "+formattedWorkTitle;
 				var formattedWorkDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
+				var formattedWorkLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
+				var formattedWorkDatesLocation = formattedWorkDates+formattedWorkLocation;
 				var formattedWorkDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
 
 				// Create a new 'work-entry' node
 				$("#workExperience").append(HTMLworkStart);
 
 				// Append formatted HTML to the 'work-entry' node just created
-				$(".work-entry:last").append(formattedEmployerTitle);
-				$(".work-entry:last").append(formattedWorkLocation);
-				$(".work-entry:last").append(formattedWorkDates);
+				$(".work-entry:last").append(formattedWorkEmployerTitle);
+				$(".work-entry:last").append(formattedWorkDatesLocation);
 				$(".work-entry:last").append(formattedWorkDescription);
 			}
 		}
@@ -184,11 +184,11 @@ var projects = {
 var education = {
 	"schools" : [
 		{
-			"name" : "SUNY Albany",
-			"location" : "Albany, NY",
+			"name" : "SUNY New Paltz",
+			"location" : "New Paltz, NY",
 			"degree" : "None",
-			"majors" : ["Physics"],
-			"dates" : "1984-1985",
+			"majors" : ["Liberal Arts"],
+			"dates" : "1987-88",
 			"url" : "",
 			"onlineCourses" : [
 				{
@@ -216,11 +216,11 @@ var education = {
 			]
 		},
 		{
-			"name" : "SUNY New Paltz",
-			"location" : "New Paltz, NY",
+			"name" : "SUNY Albany",
+			"location" : "Albany, NY",
 			"degree" : "None",
-			"majors" : ["Liberal Arts"],
-			"dates" : "1987-88",
+			"majors" : ["Physics"],
+			"dates" : "1984-1985",
 			"url" : "",
 			"onlineCourses" : [
 				{
@@ -241,6 +241,7 @@ var education = {
 			for(var school in this.schools) {
 				var formattedSchoolName = HTMLschoolName.replace("%data%", this.schools[school].name);
 				var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", this.schools[school].degree);
+				var formattedSchoolNameDegree = formattedSchoolName+" "+formattedSchoolDegree;
 				var formattedSchoolDates = HTMLschoolDates.replace("%data%", this.schools[school].dates);
 				var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", this.schools[school].location);
 				var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", this.schools[school].majors);
@@ -249,8 +250,7 @@ var education = {
 				$("#education").append(HTMLschoolStart);
 
 				// Append formatted HTML to the 'education-entry' node just created
-				$(".education-entry:last").append(formattedSchoolName);
-				$(".education-entry:last").append(formattedSchoolDegree);
+				$(".education-entry:last").append(formattedSchoolNameDegree);
 				$(".education-entry:last").append(formattedSchoolDates);
 				$(".education-entry:last").append(formattedSchoolLocation);
 				$(".education-entry:last").append(formattedSchoolMajor);
