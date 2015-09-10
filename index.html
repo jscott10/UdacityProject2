@@ -88,19 +88,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
 		<!-- Nav tabs -->
 		<ul id="myTabs" class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Work Experience</a></li>
+			<li role="presentation class="active""><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Work Experience</a></li>
 			<li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Projects</a></li>
-			<li role="presentation"><a href="#tab3" aria-controls="tab2" role="tab" data-toggle="tab">Education</a></li>
-			<li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Where I've Lived and Worked</a></li>
+			<li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Education</a></li>
+			<li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab" id="tablink4">Where I've Lived and Worked</a></li>
 		</ul>
 
-  <!-- Tab panes
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">...</div>
-    <div role="tabpanel" class="tab-pane" id="profile">...</div>
-    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-    <div role="tabpanel" class="tab-pane" id="settings">...</div>
-  </div> -->
 		<div class="tab-content">
 			<!-- Employment History -->
 			<div role="tabpanel" id="tab1" class="tab-pane fade in active">
@@ -114,7 +107,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 					</div>
 				</section>
 			</div>
-
 
 			<!-- Projects -->
 			<div role="tabpanel" id="tab2" class="tab-pane fade">
@@ -198,12 +190,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		if(document.getElementById('map') === null) {
 			document.getElementById('mapDiv').style.display = 'none';
 		}
-	</script>
-	<script type="text/javascript">
-		$('#myTabs li a').click(function (e) {
-		  e.preventDefault();
-		  $(this).tab('show');
-		});
 	</script>
 </body>
 </html>

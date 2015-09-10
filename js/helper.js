@@ -241,6 +241,20 @@ function initializeMap() {
 	// the locations array
 	pinPoster(locations);
 
+	// Map will not display if the containing div is hidden when the map is initialized.
+	// When map tab is clicked, wait 200ms, then resize map to fit container and resize.
+	//
+	// Solution found at:
+	// http://stackoverflow.com/questions/10197128/google-maps-api-v3-not-rendering-competely-on-tabbed-page-using-twitters-bootst
+	$("#tablink4").click(function() {
+		setTimeout(function() {
+			console.log("xxxxx");
+			var center = map.getCenter();
+			map.fitBounds(mapBounds);
+			google.maps.event.trigger(map, 'resize');
+			map.setCenter(center);
+			}, 200);
+	});
 }
 
 /*
