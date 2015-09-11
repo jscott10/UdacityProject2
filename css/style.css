@@ -15,11 +15,6 @@ h6 {
   font-weight: 400;
 }
 
-/*
-.clear-fix {
-  overflow: auto;
-}
-*/
 .education-entry,
 .work-entry,
 .project-entry {
@@ -72,15 +67,13 @@ h5 {
   font-size: 16px;
   color: #999;
   line-height: 18px;
-  /*float: left;*/
-}
+ }
 
 .location-text {
   font-style: italic;
   font-size: 16px;
   color: #999;
   line-height: 18px;
-  /*float: right;*/
 
 }
 
@@ -134,6 +127,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
+  background-image: url("../images/header-bgnd.jpg");
   background-color: #484848;
   padding: 15px;
   border: none;

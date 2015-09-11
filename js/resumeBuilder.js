@@ -47,11 +47,11 @@ var bio = {
 	},
 
 	/*
-		displayTopContacts() and displayFooterContacts() are implemented as 2 separate functions because they
-		are updating 2 different sections of the page, and the contents of the sections might not always be the same
-		(even though they are now.)
+	displayTopContacts() and displayFooterContacts() are implemented as 2 separate functions because they
+	are updating 2 different sections of the page, and the contents of the sections might not always be the same
+	(even though they are now.)
 
-		htmlFormattedContacts is implemented as an object to allow iterating through the list in the 2 display functions.
+	htmlFormattedContacts is implemented as an object to allow iterating through the list in the 2 display functions.
 	*/
 
 	// Iterate through formattedContacts object and append each to #topContacts node
@@ -168,10 +168,13 @@ var projects = {
 				$(".project-entry:last").append(formattedProjectTitle);
 				$(".project-entry:last").append(formattedProjectDates);
 				$(".project-entry:last").append(formattedProjectDescription);
+
 				if(this.projects[project].images.length > 0) {
+					// Append the Bootstrap row div
+					$(".project-entry:last").append(HTMLprojectImageStart);
 					for(var image in this.projects[project].images) {
 						var formattedProjectImage = HTMLprojectImage.replace("%data%", this.projects[project].images[image]);
-						$(".project-entry:last").append(formattedProjectImage);
+						$(".project-image-row:last").append(formattedProjectImage);
 					}
 				}
 			}
@@ -257,14 +260,15 @@ var education = {
 	}
 };
 
-bio.display();
-work.display();
-projects.display();
-education.display();
+// Functions can be called in any order, per specification
 $("#mapDiv").append(googleMap);
+education.display();
+projects.display();
+work.display();
+bio.display();
 
 
-//$("#main").append(internationalizeButton);
+$("#main").append(internationalizeButton);
 
 function inName(name) {
 	name = name.trim().split(" ");

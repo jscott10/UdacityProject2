@@ -1,14 +1,4 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
@@ -40,7 +30,9 @@ var HTMLprojectStart = '<article><div class="project-entry"></div></article>';
 var HTMLprojectTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%</a></h3></div></div>';
 var HTMLprojectDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLprojectDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
-var HTMLprojectImage = '<div class="row"><div class="col-md-12"><img class="img-responsive" src="%data%"></div></div>';
+// Bootstrap row
+var HTMLprojectImageStart = '<div class="row project-image-row"></div>';
+var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive" src="%data%"></div>';
 
 var HTMLschoolStart = '<article><div class="education-entry"></div></article>';
 var HTMLschoolName = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
@@ -241,14 +233,13 @@ function initializeMap() {
 	// the locations array
 	pinPoster(locations);
 
-	// Map will not display if the containing div is hidden when the map is initialized.
-	// When map tab is clicked, wait 200ms, then resize map to fit container and resize.
+	// Map would not display if the containing div is hidden when the map is initialized.
+	// Fixed: When map tab is clicked, wait 200ms, then resize map to fit container and re-center.
 	//
 	// Solution found at:
 	// http://stackoverflow.com/questions/10197128/google-maps-api-v3-not-rendering-competely-on-tabbed-page-using-twitters-bootst
 	$("#tablink4").click(function() {
 		setTimeout(function() {
-			console.log("xxxxx");
 			var center = map.getCenter();
 			map.fitBounds(mapBounds);
 			google.maps.event.trigger(map, 'resize');
@@ -256,10 +247,6 @@ function initializeMap() {
 			}, 200);
 	});
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
