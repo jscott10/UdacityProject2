@@ -13,7 +13,7 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<span class="header-role">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -23,31 +23,31 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbioPic = '<img src="%data%" class="biopic img-circle">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkStart = '<article><div class="work-entry"></div></article>';
+var HTMLworkEmployer = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
+var HTMLworkTitle = ' - %data%</a></h3></div></div>';
+var HTMLworkDates = '<div class="row"><div class="date-text col-sm-8">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-sm-4 text-right">%data%</div></div>';
+var HTMLworkDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectStart = '<article><div class="project-entry"></div></article>';
+var HTMLprojectTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%</a></h3></div></div>';
+var HTMLprojectDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
+var HTMLprojectDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
+var HTMLprojectImage = '<div class="row"><div class="col-md-12"><img class="img-responsive" src="%data%"></div></div>';
 
-var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolStart = '<article><div class="education-entry"></div></article>';
+var HTMLschoolName = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
+var HTMLschoolDegree = ' -- %data%</a></h3></div></div>';
+var HTMLschoolDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
+var HTMLschoolLocation = '<div class="row"><div class="location-text col-md-12">%data%</div></div>';
+var HTMLschoolMajor = '<div class="row"><div class="col-md-12"><p><em>Major: %data%</em></p></div></div>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -56,6 +56,7 @@ var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
+
 var googleMap = '<div id="map"></div>';
 
 
@@ -75,17 +76,19 @@ The next few lines about clicks are for the Collecting Click Locations quiz in L
 clickLocations = [];
 
 function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
+	clickLocations.push(
+		{
+			x: x,
+			y: y
+		}
+	);
+	console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x,y);
 });
 
 
@@ -95,139 +98,163 @@ This is the fun part. Here's where we generate the custom Google Map for the web
 See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
-var map;    // declares a global map variable
 
+var map;    // declares a global map variable
 
 /*
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
-  var locations;
+	var locations;
 
-  var mapOptions = {
-    disableDefaultUI: true
-  };
+	var mapOptions = {
+		disableDefaultUI: true
+	};
 
-  /*
-  For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
-  */
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+	/*
+	For the map to be displayed, the googleMap var must be
+	appended to #mapDiv in resumeBuilder.js.
+	*/
+
+	// Constructor
+	map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
-  function locationFinder() {
+	/*
+	locationFinder() returns an array of every location string from the JSONs
+	written for bio, education, and work.
+	*/
+	function locationFinder() {
 
-    // initializes an empty array
-    var locations = [];
+		// initializes an empty array
+		var locations = [];
 
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+		// adds the single location property from bio to the locations array
+		locations.push(bio.contacts.location);
 
-    // iterates through school locations and appends each location to
-    // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
-    }
+		// iterates through school locations and appends each location to
+		// the locations array
+		for (var school in education.schools) {
+			locations.push(education.schools[school].location);
+		}
 
-    // iterates through work locations and appends each location to
-    // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
-    }
+		// iterates through work locations and appends each location to
+		// the locations array
+		for (var job in work.jobs) {
+			locations.push(work.jobs[job].location);
+		}
 
-    return locations;
-  }
+		return locations;
+	}
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
-  function createMapMarker(placeData) {
+	/*
+	createMapMarker(placeData) reads Google Places search results to create map pins.
+	placeData is the object returned from search results containing information
+	about a single location.
+	*/
+	function createMapMarker(placeData) {
 
-    // The next lines save location data from the search result object to local variables
-    var lat = placeData.geometry.location.lat();  // latitude from the place service
-    var lon = placeData.geometry.location.lng();  // longitude from the place service
-    var name = placeData.formatted_address;   // name of the place from the place service
-    var bounds = window.mapBounds;            // current boundaries of the map window
+		// The next lines save location data from the search result object to local variables
+		var lat = placeData.geometry.location.lat();  // latitude from the place service
+		var lon = placeData.geometry.location.lng();  // longitude from the place service
+		var name = placeData.formatted_address;   // name of the place from the place service
+		var bounds = window.mapBounds;            // current boundaries of the map window
 
-    // marker is an object with additional data about the pin for a single location
-    var marker = new google.maps.Marker({
-      map: map,
-      position: placeData.geometry.location,
-      title: name
-    });
+		// marker is an object with additional data about the pin for a single location
+		var marker = new google.maps.Marker({
+			map: map,
+			position: placeData.geometry.location,
+			title: name
+		});
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
+		// infoWindows are the little helper windows that open when you click
+		// or hover over a pin on a map. They usually contain more information
+		// about a location.
 
-    // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
-    });
+		// Added a little HTML formatting to content
+		var infoWindow = new google.maps.InfoWindow({
+			content: "<p><strong>"+name+"</strong></p>"
+		});
 
-    // this is where the pin actually gets added to the map.
-    // bounds.extend() takes in a map location object
-    bounds.extend(new google.maps.LatLng(lat, lon));
-    // fit the map to the new marker
-    map.fitBounds(bounds);
-    // center the map
-    map.setCenter(bounds.getCenter());
-  }
+		// Open infoWindow with location text when user hovers over pin
+		// Changed 'click' event to 'mouseover'
+		google.maps.event.addListener(marker, 'mouseover', function() {
+			infoWindow.open(map, marker);
+		});
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
-  function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0]);
-    }
-  }
+		// Added mouseout event to close infoWindow
+		google.maps.event.addListener(marker, 'mouseout', function() {
+			infoWindow.close();
+		});
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
-  function pinPoster(locations) {
+		// this is where the pin actually gets added to the map.
+		// bounds.extend() takes in a map location object
+		bounds.extend(new google.maps.LatLng(lat, lon));
+		// fit the map to the new marker
+		map.fitBounds(bounds);
+		// center the map
+		map.setCenter(bounds.getCenter());
+	}
 
-    // creates a Google place search service object. PlacesService does the work of
-    // actually searching for location data.
-    var service = new google.maps.places.PlacesService(map);
+	/*
+	callback(results, status) makes sure the search returned results for a location.
+	If so, it creates a new map marker for that location.
+	*/
+	function callback(results, status) {
+		if (status == google.maps.places.PlacesServiceStatus.OK) {
+			createMapMarker(results[0]);
+		}
+	}
 
-    // Iterates through the array of locations, creates a search object for each location
-    for (var place in locations) {
+	/*
+	pinPoster(locations) takes in the array of locations created by locationFinder()
+	and fires off Google place searches for each location
+	*/
+	function pinPoster(locations) {
 
-      // the search request object
-      var request = {
-        query: locations[place]
-      };
+		// creates a Google place search service object. PlacesService does the work of
+		// actually searching for location data.
+		var service = new google.maps.places.PlacesService(map);
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
-      service.textSearch(request, callback);
-    }
-  }
+		// Iterates through the array of locations, creates a search object for each location
+		for (var place in locations) {
 
-  // Sets the boundaries of the map based on pin locations
-  window.mapBounds = new google.maps.LatLngBounds();
+			// the search request object
+			var request = {
+				query: locations[place]
+			};
 
-  // locations is an array of location strings returned from locationFinder()
-  locations = locationFinder();
+			// Actually searches the Google Maps API for location data and runs the callback
+			// function with the search results after each search.
+			service.textSearch(request, callback);
+		}
+	}
 
-  // pinPoster(locations) creates pins on the map for each location in
-  // the locations array
-  pinPoster(locations);
+	// Sets the boundaries of the map based on pin locations
+	window.mapBounds = new google.maps.LatLngBounds();
 
+	// locations is an array of location strings returned from locationFinder()
+	locations = locationFinder();
+
+	// pinPoster(locations) creates pins on the map for each location in
+	// the locations array
+	pinPoster(locations);
+
+	// Map will not display if the containing div is hidden when the map is initialized.
+	// When map tab is clicked, wait 200ms, then resize map to fit container and resize.
+	//
+	// Solution found at:
+	// http://stackoverflow.com/questions/10197128/google-maps-api-v3-not-rendering-competely-on-tabbed-page-using-twitters-bootst
+	$("#tablink4").click(function() {
+		setTimeout(function() {
+			console.log("xxxxx");
+			var center = map.getCenter();
+			map.fitBounds(mapBounds);
+			google.maps.event.trigger(map, 'resize');
+			map.setCenter(center);
+			}, 200);
+	});
 }
 
 /*
@@ -240,6 +267,6 @@ window.addEventListener('load', initializeMap);
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
-  //Make sure the map bounds get updated on page resize
-  map.fitBounds(mapBounds);
+	//Make sure the map bounds get updated on page resize
+	map.fitBounds(mapBounds);
 });

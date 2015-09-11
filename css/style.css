@@ -11,17 +11,19 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
 }
 
+/*
 .clear-fix {
   overflow: auto;
 }
-
+*/
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+  padding: 0 2%;
 }
 
 h1 {
@@ -31,12 +33,14 @@ h1 {
   display: inline;
 }
 
+/* modified */
 h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999;
-  line-height: 29px;
+  font-size: 30px;
+  color: #888;
+  line-height: 34px;
   padding: 10px;
+  margin: 30px 0 10px;
+  border-bottom: 1px solid #999;
 }
 
 h3 {
@@ -53,34 +57,35 @@ h4 {
   line-height: 17px;
 }
 
+
+/* modified */
 h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 0;
 }
 
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
-  line-height: 16px;
-  float: left;
+  line-height: 18px;
+  /*float: left;*/
 }
 
 .location-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
-  line-height: 16px;
-  float: right;
+  line-height: 18px;
+  /*float: right;*/
 
 }
 
 p {
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   line-height: 21px;
 }
@@ -130,6 +135,9 @@ a {
 /* TODO: Replace with image later */
 #header {
   background-color: #484848;
+  padding: 15px;
+  border: none;
+  border-radius: 0 0 10px 10px;
 }
 
 .flex-box {
@@ -164,9 +172,9 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+/* #lets-connect {
   text-align: center;
-}
+} */
 
 /* Media queries to handle various device widths */
 
@@ -201,9 +209,10 @@ span {
 }
 
 #mapDiv {
-  height: 400px;
+  height: 500px;
   width: 100%;
   padding-bottom: 5%;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 750px) {
