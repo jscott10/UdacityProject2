@@ -127,7 +127,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-image: url("../images/header-bgnd.jpg");
+  background-image: url("../images/header-bgnd-sm.jpg");
   background-color: #484848;
   padding: 15px;
   border: none;

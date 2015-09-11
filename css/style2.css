@@ -11,6 +11,11 @@ h2 {
   font-weight: 300;
 }
 
+.container {
+	min-width: 360px;
+	transition: width 0.5s;
+}
+
 .row    {
     max-width: 1120px;
 }
@@ -25,7 +30,7 @@ h2 {
 	max-width: 80%;
 }
 
-.flex-box {
+.standout-black {
 	background-color: black;
 	border: none;
 	border-radius: 10px;
@@ -35,8 +40,13 @@ h2 {
 .education-entry {
 	width: 100%;
 }
-@media only screen and (min-width: 1200px) {
-	.container {
-		width: 1120px;
-	}
+
+@media (min-width: 992px) {
+#header {
+  background-image: url("../images/header-bgnd-md.jpg");
+}
+
+@media (min-width: 1200px) {
+#header {
+  background-image: url("../images/header-bgnd-lg.jpg");
 }

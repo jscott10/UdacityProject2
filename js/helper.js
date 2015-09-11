@@ -16,14 +16,14 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic img-circle">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box standout-black"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<article><div class="work-entry"></div></article>';
 var HTMLworkEmployer = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a></h3></div></div>';
-var HTMLworkDates = '<div class="row"><div class="date-text col-sm-8">%data%</div>';
-var HTMLworkLocation = '<div class="location-text col-sm-4 text-right">%data%</div></div>';
+var HTMLworkDates = '<div class="row"><div class="date-text col-xs-8">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-xs-4 text-right">%data%</div></div>';
 var HTMLworkDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
 
 var HTMLprojectStart = '<article><div class="project-entry"></div></article>';
