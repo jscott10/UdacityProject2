@@ -124,7 +124,7 @@ var work = {
 				var formattedWorkDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
 
 				// Create a new 'work-entry' node
-				$("#workExperience").append(HTMLworkStart);
+				$("#workExperience>section").append(HTMLworkStart);
 
 				// Append formatted HTML to the 'work-entry' node just created
 				$(".work-entry:last").append(formattedWorkEmployerTitle);
@@ -162,7 +162,7 @@ var projects = {
 				var formattedProjectDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
 
 				// Create a new 'project-entry' node
-				$("#projects").append(HTMLprojectStart);
+				$("#projects>section").append(HTMLprojectStart);
 
 				// Append formatted HTML to the 'project-entry' node just created
 				$(".project-entry:last").append(formattedProjectTitle);
@@ -248,7 +248,7 @@ var education = {
 				var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", this.schools[school].majors);
 
 				// Create a new 'education-entry' node
-				$("#education").append(HTMLschoolStart);
+				$("#education>section").append(HTMLschoolStart);
 
 				// Append formatted HTML to the 'education-entry' node just created
 				$(".education-entry:last").append(formattedSchoolNameDegree);
