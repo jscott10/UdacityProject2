@@ -32,7 +32,7 @@ var HTMLprojectDates = '<div class="row"><div class="date-text col-md-12">%data%
 var HTMLprojectDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
 // Bootstrap row
 var HTMLprojectImageStart = '<div class="row project-image-row"></div>';
-var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive" src="%data%"></div>';
+var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive shadow-image" src="%data%"></div>';
 
 var HTMLschoolStart = '<article><div class="education-entry"></div></article>';
 var HTMLschoolName = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
@@ -47,20 +47,22 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+// Not needed for project
+// var internationalizeButton = '<button>Internationalize</button>';
 
-var googleMap = '<div id="map"></div>';
+var googleMap = '<div id="map" class="clearfix"></div>';
 
 
 /*
+Not needed for project
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
+    var iName = inName($(#name.text) || function(){};
     $('#name').html(iName);
   });
 });
+*/
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -83,13 +85,6 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 
 var map;    // declares a global map variable
 

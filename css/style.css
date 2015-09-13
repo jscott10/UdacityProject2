@@ -8,7 +8,7 @@ h4,
 h5,
 h6 {
 	font-family: Lato, sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	transition: all ease-in-out 0.5s;
 }
 
@@ -23,16 +23,12 @@ h2 {
 	transition: all ease-in-out 0.5s;
 }
 
-h2,
-h3 {
-	padding: 10px 0;
-}
-
 h1 {
 	font-size: 40px;
 	color: #f5a623;
 	line-height: 48px;
 	display: inline;
+	text-shadow: 1px 1px black;
 }
 
 h2 {
@@ -51,11 +47,9 @@ h3 {
 	line-height: 22px;
 }
 
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
+h2,
+h3 {
+	padding: 10px 0;
 }
 
 p {
@@ -100,6 +94,12 @@ span {
 	margin-left: 15px;
 }
 
+.shadow-image {
+	box-shadow: 3px 3px 5px #999;
+	padding: 0;
+	margin: 10px auto;
+}
+
 .education-entry,
 .work-entry,
 .project-entry {
@@ -129,10 +129,12 @@ span {
 	font-size: 18px;
 	color: #f3f3f3;
 	line-height: 28px;
+	display: none;
 }
 
 #skills-h3 {
 	color: #f5ae23;
+	letter-spacing: 1.2px;
 	display: none;
 }
 
@@ -176,11 +178,6 @@ span {
 	transition: all ease-in-out 0.5s;
 }
 
-.nav>li>a {
-	position: relative;
-	padding: 8px 10px;
-}
-
 #myTabs {
 	font-size: 14px;
 	transition: all ease-in-out 0.5s;
@@ -198,22 +195,17 @@ span {
 #map {
 	display: block;
 	height: 100%;
-	margin: 0 5%;
+	margin: 20px 2% 0;
 }
 
 #mapDiv {
-	height: 500px;
+	height: 600px;
 	width: 100%;
-	padding-bottom: 5%;
 	overflow: hidden;
 }
 
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 750px) {
-  .welcome-message {
-    display: none;
-  }
+#mapSection {
+	height: 500px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -222,8 +214,13 @@ span {
 		line-height: 34px;
 	}
 
+	.welcome-message {
+		display: block;
+		}
+
 	#skills-h3 {
 		display: block;
+		text-shadow: 1px 1px black;
 	}
 
 	#myTabs {
@@ -244,4 +241,9 @@ span {
 	.biopic {
 		width: 200px;
 	}
+
+	.shadow-image {
+		margin: 0 auto;
+	}
+
 }

@@ -1,3 +1,4 @@
+// Biographical data / contact info / skills
 var bio = {
 	"name" : "James L. Scott",
 	"role" : "iOS Developer",
@@ -31,9 +32,11 @@ var bio = {
 		var formattedName = HTMLheaderName.replace("%data%", this.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", this.role);
 		var formattedBioPic = HTMLbioPic.replace("%data%", this.pictureURL);
+		var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
 		$("#header").prepend(formattedRole);
 		$("#header").prepend(formattedName);
 		$("#header").append(formattedBioPic);
+		$("#header").append(formattedWelcomeMessage);
 		if(this.skills.length > 0) {
 			var formattedSkills;
 			// Create a new 'skills' node
@@ -141,13 +144,13 @@ var projects = {
 			"title" : "About Me",
 			"dates" : "August 14, 2015",
 			"description" : "Introductory project, Udacity Front End Developer Nanodegree Program",
-			"images" : ["images/proj0-lg.jpg", "images/proj2-lg.jpg"]
+			"images" : ["images/proj0-lg.jpg", "images/proj0a-lg.jpg", "images/proj0a-lg.jpg"]
 		},
 		{
 			"title" : "Online Portfolio",
 			"dates" : "August 25, 2015",
 			"description" : "Personal Portfolio Project, Udacity Front End Developer Nanodegree Program",
-			"images" : ["images/proj1-lg.jpg", "images/proj2-lg.jpg"]
+			"images" : ["images/proj1-lg.jpg", "images/proj1a-lg.jpg", "images/proj1a-lg.jpg"]
 		}
 	],
 
@@ -261,23 +264,29 @@ var education = {
 };
 
 // Functions can be called in any order, per specification
-$("#mapDiv").append(googleMap);
+$("#mapSection").append(googleMap);
 education.display();
 projects.display();
 work.display();
 bio.display();
 
 
-$("#main").append(internationalizeButton);
+// Not needed for project
+// $("#main").append(internationalizeButton);
 
-function inName(name) {
+/*function inName(name) {
 	name = name.trim().split(" ");
+	name[2] = name[2];
 	name[1] = name[1];
 	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
 
-	return name[0] + " " + name[1];
-}
+	console.log(name[0]);
+	console.log(name[1]);
+	console.log(name[2]);
 
+	return name[0] + " " + name[1] + " " + name[2];
+}
+*/
 function locationizer(work_obj) {
 	var locations = [];
 	for (var job in work_obj.jobs) {
