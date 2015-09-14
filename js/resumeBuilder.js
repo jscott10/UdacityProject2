@@ -11,72 +11,45 @@ var bio = {
 		"location" : "Endicott, NY"
 	},
 	"skills" : ["Swift", "PHP", "MySQL", "CSS", "HTML", "JavaScript"],
-	"pictureURL" : "images/jls.jpg",
+	"pictureURL" : "images/jls.jpg"
+};
 
-	// Create HTML formatted strings from bio.contacts object
-	"htmlFormattedContacts" : function() {
-		var formattedContacts = {
-			"formattedMobile" : HTMLmobile.replace("%data%", this.contacts.mobile),
-			"formattedEmail" : HTMLemail.replace("%data%", this.contacts.email),
-			"formattedGithub" : HTMLgithub.replace("%data%", this.contacts.github),
-			"formattedTwitter" : HTMLtwitter.replace("%data%", this.contacts.twitter),
-			"formattedLocation" : HTMLlocation.replace("%data%", this.contacts.location),
-		};
-		return formattedContacts;
-	},
-
+// Display the Bio section
+bio.display = function() {
 	// Create HTML formatted strings from bio object
-	// Create a node for the entry
-	// Add formatted HTML strings to the node
-	"displayHeader" : function() {
-		var formattedName = HTMLheaderName.replace("%data%", this.name);
-		var formattedRole = HTMLheaderRole.replace("%data%", this.role);
-		var formattedBioPic = HTMLbioPic.replace("%data%", this.pictureURL);
-		var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
-		$("#header").prepend(formattedRole);
-		$("#header").prepend(formattedName);
-		$("#header").append(formattedBioPic);
-		$("#header").append(formattedWelcomeMessage);
-		if(this.skills.length > 0) {
-			var formattedSkills;
-			// Create a new 'skills' node
-			$("#header").append(HTMLskillsStart);
-			// Append formatted HTML to the 'skills' node just created
-			for(var skill in this.skills) {
-				formattedSkills = HTMLskills.replace("%data%", this.skills[skill]);
-				$("#skills").append(formattedSkills);
-			}
+	var formattedName = HTMLheaderName.replace("%data%", this.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", this.role);
+	var formattedBioPic = HTMLbioPic.replace("%data%", this.pictureURL);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+
+	// htmlFormattedContacts is implemented as an object to allow iterating through the list.
+	var formattedContacts = {
+		"formattedMobile" : HTMLmobile.replace("%data%", this.contacts.mobile),
+		"formattedEmail" : HTMLemail.replace("%data%", this.contacts.email),
+		"formattedGithub" : HTMLgithub.replace("%data%", this.contacts.github),
+		"formattedTwitter" : HTMLtwitter.replace("%data%", this.contacts.twitter),
+		"formattedLocation" : HTMLlocation.replace("%data%", this.contacts.location)
+	};
+
+	// Add formatted HTML strings to the appropirate nodes
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	$("#header").append(formattedBioPic);
+	$("#header").append(formattedWelcomeMessage);
+	if(this.skills.length > 0) {
+		var formattedSkills;
+		// Create a new 'skills' node
+		$("#header").append(HTMLskillsStart);
+		// Append formatted HTML to the 'skills' node just created
+		for(var skill in this.skills) {
+			formattedSkills = HTMLskills.replace("%data%", this.skills[skill]);
+			$("#skills").append(formattedSkills);
 		}
-	},
-
-	/*
-	displayTopContacts() and displayFooterContacts() are implemented as 2 separate functions because they
-	are updating 2 different sections of the page, and the contents of the sections might not always be the same
-	(even though they are now.)
-
-	htmlFormattedContacts is implemented as an object to allow iterating through the list in the 2 display functions.
-	*/
-
-	// Iterate through formattedContacts object and append each to #topContacts node
-	"displayTopContacts" : function() {
-		var formattedContacts = this.htmlFormattedContacts();
-		for(var contact in formattedContacts) {
-			$("#topContacts").append(formattedContacts[contact]);
-		}
-	},
-
-	// Iterate through formattedContacts object and append each to #footerContacts node
-	"displayFooterContacts" : function() {
-		var formattedContacts = this.htmlFormattedContacts();
-		for(var contact in formattedContacts) {
-			$("#footerContacts").append(formattedContacts[contact]);
-		}
-	},
-
-	"display" : function() {
-		this.displayHeader();
-		this.displayTopContacts();
-		this.displayFooterContacts();
+	}
+	// Iterate through formattedContacts object and append each to #topContacts and $footerContacts nodes
+	for(var contact in formattedContacts) {
+		$("#topContacts").append(formattedContacts[contact]);
+		$("#footerContacts").append(formattedContacts[contact]);
 	}
 };
 
@@ -135,7 +108,7 @@ work.display = function() {
 			$(".work-entry:last").append(formattedWorkDescription);
 		}
 	}
-}
+};
 
 var projects = {
 	"projects" : [
@@ -267,7 +240,7 @@ education.display = function() {
 			$(".education-entry:last").append(formattedOnlineURL);
 		}
 	}
-}
+};
 
 function displayMap(gMap) {
 	$("#mapSection").append(gMap);
