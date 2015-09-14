@@ -16,7 +16,7 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic img-circle">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box standout-black"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance</h3><ul id="skills" class="flex-box standout-black"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<article><div class="work-entry"></div></article>';
@@ -41,11 +41,11 @@ var HTMLschoolDates = '<div class="row"><div class="date-text col-md-12">%data%<
 var HTMLschoolLocation = '<div class="row"><div class="location-text col-md-12">%data%</div></div>';
 var HTMLschoolMajor = '<div class="row"><div class="col-md-12"><p><em>Major: %data%</em></p></div></div>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineClasses = '<h2>Online Classes</h2>';
+var HTMLonlineTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
+var HTMLonlineSchool = ' -- %data%</a></h3></div></div>';
+var HTMLonlineDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
+var HTMLonlineURL = '<div class="row"><div class="col-md-12"><p><em><a href="#">%data%</a></em></p></div></div>';
 
 // Not needed for project
 // var internationalizeButton = '<button>Internationalize</button>';
