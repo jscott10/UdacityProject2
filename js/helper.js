@@ -30,20 +30,25 @@ var HTMLprojectStart = '<article><div class="project-entry"></div></article>';
 var HTMLprojectTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%</a></h3></div></div>';
 var HTMLprojectDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLprojectDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
+
 // Bootstrap row
 var HTMLprojectImageStart = '<div class="row project-image-row"></div>';
 var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive shadow-image" src="%data%"></div>';
 
+var HTMLschoolSection = '<section></section>';
+var HTMLschoolSectionHeader = '<div class="row"><div class="col-md-12"><header><h3>College</h3></header></div></div>';
 var HTMLschoolStart = '<article><div class="education-entry"></div></article>';
-var HTMLschoolName = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a></h3></div></div>';
+var HTMLschoolName = '<div class="row"><div class="col-md-12"><h4><a href="#">%data%';
+var HTMLschoolDegree = ' -- %data%</a></h4></div></div>';
 var HTMLschoolDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLschoolLocation = '<div class="row"><div class="location-text col-md-12">%data%</div></div>';
 var HTMLschoolMajor = '<div class="row"><div class="col-md-12"><p><em>Major: %data%</em></p></div></div>';
 
-var HTMLonlineClasses = '<h2>Online Classes</h2>';
-var HTMLonlineTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
-var HTMLonlineSchool = ' -- %data%</a></h3></div></div>';
+var HTMLonlineSection = '<section></section>';
+var HTMLonlineSectionHeader = '<div class="row"><div class="col-md-12"><header><h3>Online Classes</h3></header></div></div>';
+var HTMLonlineStart = '<article><div class="online-education-entry"></div></article>';
+var HTMLonlineTitle = '<div class="row"><div class="col-md-12"><h4><a href="#">%data%';
+var HTMLonlineSchool = ' -- %data%</a></h4></div></div>';
 var HTMLonlineDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLonlineURL = '<div class="row"><div class="col-md-12"><p><em><a href="#">%data%</a></em></p></div></div>';
 
@@ -51,7 +56,6 @@ var HTMLonlineURL = '<div class="row"><div class="col-md-12"><p><em><a href="#">
 // var internationalizeButton = '<button>Internationalize</button>';
 
 var googleMap = '<div id="map" class="clearfix"></div>';
-
 
 /*
 Not needed for project

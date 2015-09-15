@@ -17,18 +17,18 @@ var bio = {
 // Display the Bio section
 bio.display = function() {
 	// Create HTML formatted strings from bio object
-	var formattedName = HTMLheaderName.replace("%data%", this.name);
-	var formattedRole = HTMLheaderRole.replace("%data%", this.role);
-	var formattedBioPic = HTMLbioPic.replace("%data%", this.pictureURL);
-	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", this.welcomeMessage);
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 	// htmlFormattedContacts is implemented as an object to allow iterating through the list.
 	var formattedContacts = {
-		"formattedMobile" : HTMLmobile.replace("%data%", this.contacts.mobile),
-		"formattedEmail" : HTMLemail.replace("%data%", this.contacts.email),
-		"formattedGithub" : HTMLgithub.replace("%data%", this.contacts.github),
-		"formattedTwitter" : HTMLtwitter.replace("%data%", this.contacts.twitter),
-		"formattedLocation" : HTMLlocation.replace("%data%", this.contacts.location)
+		"formattedMobile" : HTMLmobile.replace("%data%", bio.contacts.mobile),
+		"formattedEmail" : HTMLemail.replace("%data%", bio.contacts.email),
+		"formattedGithub" : HTMLgithub.replace("%data%", bio.contacts.github),
+		"formattedTwitter" : HTMLtwitter.replace("%data%", bio.contacts.twitter),
+		"formattedLocation" : HTMLlocation.replace("%data%", bio.contacts.location)
 	};
 
 	// Add formatted HTML strings to the appropirate nodes
@@ -36,13 +36,13 @@ bio.display = function() {
 	$("#header").prepend(formattedName);
 	$("#header").append(formattedBioPic);
 	$("#header").append(formattedWelcomeMessage);
-	if(this.skills.length > 0) {
+	if(bio.skills.length > 0) {
 		var formattedSkills;
 		// Create a new 'skills' node
 		$("#header").append(HTMLskillsStart);
 		// Append formatted HTML to the 'skills' node just created
-		for(var skill in this.skills) {
-			formattedSkills = HTMLskills.replace("%data%", this.skills[skill]);
+		for(var skill in bio.skills) {
+			formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#skills").append(formattedSkills);
 		}
 	}
@@ -53,6 +53,7 @@ bio.display = function() {
 	}
 };
 
+// Employment section
 var work = {
 	"jobs" : [
 		{
@@ -90,14 +91,16 @@ var work = {
 work.display = function() {
 	// Create HTML formatted strings from work object
 	if(work.jobs.length > 0) {
+		var thisJob = [];
 		for(var job in work.jobs) {
-			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			thisJob = work.jobs[job];
+			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", thisJob.employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%", thisJob.title);
 			var formattedWorkEmployerTitle = formattedWorkEmployer+" "+formattedWorkTitle;
-			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-			var formattedWorkDatesLocation = formattedWorkDates+formattedWorkLocation;
-			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			var formattedWorkDates = HTMLworkDates.replace("%data%", thisJob.dates);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", thisJob.location);
+			var formattedWorkDatesLocation = formattedWorkDates + formattedWorkLocation;
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", thisJob.description);
 
 			// Create a new 'work-entry' node
 			$("#workExperience>section").append(HTMLworkStart);
@@ -110,6 +113,7 @@ work.display = function() {
 	}
 };
 
+// Projects section
 var projects = {
 	"projects" : [
 		{
@@ -158,6 +162,7 @@ projects.display = function() {
 	}
 };
 
+// Education Section
 var education = {
 	"schools" : [
 		{
@@ -195,22 +200,26 @@ var education = {
 	]
 };
 
-// Display educations section
+// Display Education Section
 education.display = function() {
 	// Create HTML formatted strings from schools object
 	if(education.schools.length > 0) {
+		// Append the section tags and header
+		$("#education>section").append(HTMLschoolSection);
+		$("#education>section").children("section:last").append(HTMLschoolSectionHeader);
+
 		var thisSchool = [];
 		for(var school in education.schools) {
 			thisSchool = education.schools[school];
 			var formattedSchoolName = HTMLschoolName.replace("%data%", thisSchool.name);
 			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", thisSchool.degree);
-			var formattedSchoolNameDegree = formattedSchoolName+" "+formattedSchoolDegree;
+			var formattedSchoolNameDegree = formattedSchoolName + " " + formattedSchoolDegree;
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", thisSchool.dates);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", thisSchool.location);
 			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", thisSchool.majors);
 
 			// Create a new 'education-entry' node
-			$("#education>section").append(HTMLschoolStart);
+			$("#education>section").children("section:last").append(HTMLschoolStart);
 
 			// Append formatted HTML to the 'education-entry' node just created
 			$(".education-entry:last").append(formattedSchoolNameDegree);
@@ -221,7 +230,10 @@ education.display = function() {
 	}
 	// Create HTML formatted strings from schools object
 	if(education.onlineCourses.length > 0) {
-		$("#education>section").append(HTMLonlineClasses);
+		// Append the section tags and header
+		$("#education>section").append(HTMLonlineSection);
+		$("#education>section").children("section:last").append(HTMLonlineSectionHeader);
+
 		var thisCourse = [];
 		for(var course in education.onlineCourses) {
 			thisCourse = education.onlineCourses[course];
@@ -231,13 +243,13 @@ education.display = function() {
 			var formattedOnlineDates = HTMLonlineDates.replace("%data%", thisCourse.dates);
 			var formattedOnlineURL = HTMLonlineURL.replace("%data%", thisCourse.url);
 
-			// Create a new 'education-entry' node
-			$("#education>section").append(HTMLschoolStart);
+			// Create a new 'online-education-entry' node
+			$("#education>section").children("section:last").append(HTMLonlineStart);
 
-			// Append formatted HTML to the 'education-entry' node just created
-			$(".education-entry:last").append(formattedOnlineTitleSchool);
-			$(".education-entry:last").append(formattedOnlineDates);
-			$(".education-entry:last").append(formattedOnlineURL);
+			// Append formatted HTML to the 'online-education-entry' node just created
+			$(".online-education-entry:last").append(formattedOnlineTitleSchool);
+			$(".online-education-entry:last").append(formattedOnlineDates);
+			$(".online-education-entry:last").append(formattedOnlineURL);
 		}
 	}
 };
@@ -246,30 +258,6 @@ function displayMap(gMap) {
 	$("#mapSection").append(gMap);
 }
 
-// Functions can be called in any order, per specification
-displayMap(googleMap);
-education.display();
-projects.display();
-work.display();
-bio.display();
-
-
-// Not needed for project
-// $("#main").append(internationalizeButton);
-
-/*function inName(name) {
-	name = name.trim().split(" ");
-	name[2] = name[2];
-	name[1] = name[1];
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-	console.log(name[0]);
-	console.log(name[1]);
-	console.log(name[2]);
-
-	return name[0] + " " + name[1] + " " + name[2];
-}
-*/
 function locationizer(work_obj) {
 	var locations = [];
 	for (var job in work_obj.jobs) {
@@ -277,3 +265,10 @@ function locationizer(work_obj) {
 	}
 	return locations;
 }
+
+// Functions can be called in any order, per specification
+displayMap(googleMap);
+education.display();
+projects.display();
+work.display();
+bio.display();
