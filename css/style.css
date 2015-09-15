@@ -3,215 +3,258 @@ div,
 ul,
 li,
 p,
-h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: Lato, sans-serif;
-  font-weight: 400;
+	font-family: Lato, sans-serif;
+	font-weight: 300;
+	transition: all ease-in-out 0.5s;
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 2%;
+body {
+	min-width: 600px;
+}
+
+h1,
+h2 {
+	font-family: Oxygen, sans-serif;
+	font-weight: 300;
+	transition: all ease-in-out 0.5s;
 }
 
 h1 {
-  font-size: 40px;
-  color: #f5a623;
-  line-height: 48px;
-  display: inline;
+	font-size: 40px;
+	color: #f5a623;
+	line-height: 48px;
+	display: inline;
+	text-shadow: 1px 1px black;
 }
 
-/* modified */
 h2 {
-  font-size: 30px;
-  color: #888;
-  line-height: 34px;
-  padding: 10px;
-  margin: 30px 0 10px;
-  border-bottom: 1px solid #999;
+	margin: 20px 0 10px;
+	font-size: 24px;
+	color: #888;
+	line-height: 30px;
+	border-bottom: 1px solid #999;
 }
 
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000;
-  line-height: 22px;
-}
-
+h3,
 h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
+	margin: 0;
+	font-style: italic;
+	font-size: 20px;
+	color: #000;
+	line-height: 22px;
 }
 
-
-/* modified */
 h2,
 h3,
-h4,
-h5 {
-  padding: 10px 0;
-}
-
-
-.date-text {
-  font-style: italic;
-  font-size: 16px;
-  color: #999;
-  line-height: 18px;
- }
-
-.location-text {
-  font-style: italic;
-  font-size: 16px;
-  color: #999;
-  line-height: 18px;
-
+h4 {
+	padding: 10px 0;
 }
 
 p {
-  font-size: 16px;
-  color: #333;
-  line-height: 21px;
+	font-size: 16px;
+	color: #333;
+	line-height: 21px;
 }
 
 a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
-}
-
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-}
-
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
-.orange {
-  background-color: #f5ae23;
-}
-
-.orange-text {
-  color: #f5ae23;
-}
-
-.white-text {
-  font-weight: bold;
-  color: #fff;
-}
-
-.gray {
-  background-color: #f3f3f3;
-  padding-bottom: 10px;
-  clear:both;
-}
-
-.dark-gray {
-  background-color: #4a4a4a;
-}
-
-/* TODO: Replace with image later */
-#header {
-  background-image: url("../images/header-bgnd.jpg");
-  background-color: #484848;
-  padding: 15px;
-  border: none;
-  border-radius: 0 0 10px 10px;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.center-content {
-  padding: 2.5% 5%;
+	color: #1199c3;
+	text-decoration: none;
+	margin-top: 10px;
+	display: block;
 }
 
 ul {
-  list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+	list-style-type: none;
 }
 
 img {
-  padding: 10px;
+	padding: 10px;
 }
 
 span {
-  padding: 5px;
+	padding: 5px;
 }
 
-/* #lets-connect {
-  text-align: center;
-} */
-
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
+.container {
+	min-width: 360px;
+	transition: all ease-in-out 0.5s;
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
+.standout-black {
+	background-color: black;
+	border: none;
+	border-radius: 10px;
 }
 
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
+.header-role {
+	color: white;
+	font-size: 24px;
+	margin-left: 15px;
+}
+
+.shadow-image {
+	box-shadow: 3px 3px 5px #999;
+	padding: 0;
+	margin: 10px auto;
+}
+
+.online-education-entry,
+.education-entry,
+.work-entry,
+.project-entry {
+	padding: 0 2%;
+}
+
+.date-text {
+	font-style: italic;
+	font-size: 16px;
+	color: #999;
+	line-height: 18px;
+}
+
+.location-text {
+	font-style: italic;
+	font-size: 16px;
+	color: #999;
+	line-height: 18px;
+}
+
+.description-text {
+	max-width: 80%;
+}
+
+.welcome-message {
+	font-style: italic;
+	font-size: 18px;
+	color: #f3f3f3;
+	line-height: 28px;
+	display: none;
+}
+
+#skills-h3 {
+	color: #f5ae23;
+	letter-spacing: 1.2px;
+	display: none;
+}
+
+.orange {
+	background-color: #f5ae23;
+}
+
+.orange-text {
+	color: #f5ae23;
+}
+
+.white-text {
+	font-weight: bold;
+	color: #fff;
+}
+
+.gray {
+	background-color: #f3f3f3;
+	padding-bottom: 10px;
+	clear:both;
+}
+
+.dark-gray {
+	background-color: #4a4a4a;
+}
+
+/*
+-webkit-flex generates a warning in the CSS validator
+It's in the supplied css files and
+there are examples of it online, eg:
+http://www.w3schools.com/cssref/css3_pr_flex.asp
+https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+*/
+
+.flex-box {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 10px;
+}
+
+.biopic {
+	float: left;
+	padding: 10px;
+	width: 150px;
+	display: none;
+	transition: all ease-in-out 0.5s;
+}
+
+#myTabs {
+	font-size: 14px;
+	transition: all ease-in-out 0.5s;
+}
+
+#header {
+	background-image: url("../images/header-bgnd-lg.jpg");
+	background-color: #484848;
+	padding: 15px;
+	border: none;
+	border-radius: 0 0 10px 10px;
+	transition: all ease-in-out 0.5s;
 }
 
 #map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+	display: block;
+	height: 100%;
+	margin: 20px 2% 0;
 }
 
 #mapDiv {
-  height: 500px;
-  width: 100%;
-  padding-bottom: 5%;
-  overflow: hidden;
+	height: 600px;
+	width: 100%;
+	overflow: hidden;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
-  }
+#mapSection {
+	height: 500px;
+}
+
+@media only screen and (min-width: 768px) {
+	h2 {
+		font-size: 30px;
+		line-height: 34px;
+	}
+
+	.welcome-message {
+		display: block;
+		}
+
+	#skills-h3 {
+		display: block;
+		text-shadow: 1px 1px black;
+	}
+
+	#myTabs {
+		font-size: 16px;
+	}
+
+	.biopic {
+		display: block;
+		width: 175px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	#myTabs {
+		font-size: 18px;
+	}
+
+	.biopic {
+		width: 200px;
+	}
+
+	.shadow-image {
+		margin: 0 auto;
+	}
+
 }

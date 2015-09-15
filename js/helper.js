@@ -16,51 +16,57 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic img-circle">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance</h3><ul id="skills" class="flex-box standout-black"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<article><div class="work-entry"></div></article>';
 var HTMLworkEmployer = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a></h3></div></div>';
-var HTMLworkDates = '<div class="row"><div class="date-text col-sm-8">%data%</div>';
-var HTMLworkLocation = '<div class="location-text col-sm-4 text-right">%data%</div></div>';
+var HTMLworkDates = '<div class="row"><div class="date-text col-xs-8">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-xs-4 text-right">%data%</div></div>';
 var HTMLworkDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
 
 var HTMLprojectStart = '<article><div class="project-entry"></div></article>';
 var HTMLprojectTitle = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%</a></h3></div></div>';
 var HTMLprojectDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLprojectDescription = '<div class="row"><div class="col-md-12"><p class="description-text">%data%</p></div></div>';
+
 // Bootstrap row
 var HTMLprojectImageStart = '<div class="row project-image-row"></div>';
-var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive" src="%data%"></div>';
+var HTMLprojectImage = '<div class="col-md-4"><img class="img-responsive shadow-image" src="%data%"></div>';
 
+var HTMLschoolSection = '<section></section>';
+var HTMLschoolSectionHeader = '<div class="row"><div class="col-md-12"><header><h3>College</h3></header></div></div>';
 var HTMLschoolStart = '<article><div class="education-entry"></div></article>';
-var HTMLschoolName = '<div class="row"><div class="col-md-12"><h3><a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a></h3></div></div>';
+var HTMLschoolName = '<div class="row"><div class="col-md-12"><h4><a href="#">%data%';
+var HTMLschoolDegree = ' -- %data%</a></h4></div></div>';
 var HTMLschoolDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
 var HTMLschoolLocation = '<div class="row"><div class="location-text col-md-12">%data%</div></div>';
 var HTMLschoolMajor = '<div class="row"><div class="col-md-12"><p><em>Major: %data%</em></p></div></div>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineSection = '<section></section>';
+var HTMLonlineSectionHeader = '<div class="row"><div class="col-md-12"><header><h3>Online Classes</h3></header></div></div>';
+var HTMLonlineStart = '<article><div class="online-education-entry"></div></article>';
+var HTMLonlineTitle = '<div class="row"><div class="col-md-12"><h4><a href="#">%data%';
+var HTMLonlineSchool = ' -- %data%</a></h4></div></div>';
+var HTMLonlineDates = '<div class="row"><div class="date-text col-md-12">%data%</div></div>';
+var HTMLonlineURL = '<div class="row"><div class="col-md-12"><p><em><a href="#">%data%</a></em></p></div></div>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+// Not needed for project
+// var internationalizeButton = '<button>Internationalize</button>';
 
-var googleMap = '<div id="map"></div>';
-
+var googleMap = '<div id="map" class="clearfix"></div>';
 
 /*
+Not needed for project
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName() || function(){};
+    var iName = inName($(#name.text) || function(){};
     $('#name').html(iName);
   });
 });
+*/
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -83,13 +89,6 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
-
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 
 var map;    // declares a global map variable
 
